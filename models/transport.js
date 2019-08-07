@@ -36,7 +36,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
   Transport.associate = function (models) {
-    Transport.belongsTo(models.TripName, {
+    Transport.belongsTo(models.Trip, {
       foreignKey: {
         allowNull: false
       }

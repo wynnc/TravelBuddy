@@ -11,7 +11,6 @@ var userInViews = require('./lib/middleware/userInViews');
 var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var db = require('./models');
 
 dotenv.load();
 
@@ -68,7 +67,7 @@ app.use(session(sess));
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client')));
 
 app.use(flash());
 
@@ -89,8 +88,8 @@ app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use(express.static('public'));
 app.use(express.static('public/images'));
-require('./routes/api-routing')(app);
 require('./routes/html-routing')(app);
+require('./routes');
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {

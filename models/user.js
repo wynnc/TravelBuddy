@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
 
   //   Sets up foreign keys on Userid with other models and deletes if User is deleted
   User.associate = function (models) {
-    User.hasMany(models.TripName, {
+    User.hasMany(models.Trip, {
       onDelete: 'cascade'
     });
   };
