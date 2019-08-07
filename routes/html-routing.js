@@ -1,7 +1,5 @@
-var path = require('path');
-
 module.exports = function (app) {
-  app.get('/newtrip', function (req, res) {
-    res.sendFile(path.join(__dirname, '../views/formTrip.handlebars'));
+  app.get('/updateUser', function (req, res) {
+    res.render('userForm.pug');
   });
 };

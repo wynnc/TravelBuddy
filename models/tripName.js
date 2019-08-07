@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var TripName = sequelize.define('TripName', {
+  var Trip = sequelize.define('Trip', {
     tripName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -9,21 +9,21 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  TripName.associate = function (models) {
-    TripName.belongsTo(models.Customer, {
+  Trip.associate = function (models) {
+    Trip.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
-    TripName.hasMany(models.Flight, {
+    Trip.hasMany(models.Flight, {
       onDelete: 'cascade'
     });
-    TripName.hasMany(models.Lodging, {
+    Trip.hasMany(models.Lodging, {
       onDelete: 'cascade'
     });
-    TripName.hasMany(models.Transport, {
+    Trip.hasMany(models.Transport, {
       onDelete: 'cascade'
     });
   };
-  return TripName;
+  return Trip;
 };
