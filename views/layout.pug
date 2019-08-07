@@ -2,9 +2,9 @@ doctype html
 html
   head
     title= TravelBuddy
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/public/stylesheets/style.css')
     link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
-    link(rel='icon', href='../public/images/favicon.ico', type="image/x-icon")
+    link(rel='icon', href='/public/images/favicon.ico', type="image/x-icon")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat&display=swap")
     
   body
@@ -13,6 +13,7 @@ html
       if locals.user
         a(href="/").w3-bar-item.w3-button Home
         a(href="/user" ).w3-bar-item.w3-button Profile
+        a(href="/updateUser").w3-bar-item.w3-button Edit Profile
         a(href="/trips").w3-bar-item.w3-button See Trips
         a(href="/newtrip").w3-bar-item.w3-button Create New Trip
         a(id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Log Out
