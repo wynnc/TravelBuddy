@@ -63,3 +63,30 @@ img {
     right: 93px;
     z-index: 5;
 }
+
+.aboutUser {
+    margin-bottom: 30px;
+}
+
+.userName {
+    margin: 13px;
+}
+
+.userEmail {
+    margin: 13px;
+    position: relative;
+    left: 3px;
+}
+
+.tripName, .startDate, .endDate {
+    margin-bottom: 13px;
+    position: relative;
+}
+
+.tripName {
+    left: 27px;
+}
+
+.endDate {
+    left: 5px;
+}
