@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    .main.container
+        .w3-card-4.w3-center.travelform
+            h1.display-4.m-b-2.travelPlans Trip Name: 
+
+            form(method='POST' action='/tripDetails')
+                .form-group.chosenTrip
+                    label(for='tripDetails') Choose Which Trip Details You Would Like to Add:
+                    select#tripSelect.select.form-control.input-lg(form='chooseTripType', name='tripType')
+                        option(value='0') --Select--
+                        option(value='1') Flights
+                        option(value='2') Lodging
+                        option(value='3') Transport
+                
+            
+                button.btn.btn-primary(type='submit') Update Trip Info
