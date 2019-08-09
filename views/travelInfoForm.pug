@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    .main.container
+        .w3-card-4.w3-center.travelform
+            h1.display-4.m-b-2.travelPlans Trip Name: 
+
+            form(method='POST' action='/tripDetails')
+                .form-group.chosenTrip
+                    label(for='tripDetails') Choose Which Trip Details You Would Like to Add:
+                        -const travelOptions = [{value: 'Flights'}, {value: 'Lodging'}, {value: 'Transport'}]
+                    select#travelOption(name='tripOptions' size='3' multiple required)
+                        each travelOption in travelOptions
+                            option=trip
+                        input(type='submit', value='Submit')
+
+                
+                .form-group.userEmail
+                    label(for='email') Email:
+                    input#email.form-control(type='email', placeholder='name@email.com', name='email')
+                button.btn.btn-primary(type='submit') Update Trip Info

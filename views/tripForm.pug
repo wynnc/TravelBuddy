@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    .main.container
+        .w3-card-4.w3-center.userform
+            h1.display-4.m-b-2.aboutTrip Add New Trip
+
+            form(method='POST' action='/api/trips')
+                .form-group.tripName
+                    label(for='tripName') Name:
+                    input#tripName.form-control(type='text', placeholder='Trip Name', name='tripName')
+                .form-group.startDate
+                    label(for='startDate') Starting Date:
+                    input#startDate.form-control(type='text', placeholder='03/11/2021', name='startDate')
+                .form-group.endDate
+                    label(for='endDate') Ending Date:
+                    input#endDate.form-control(type='text', placeholder='03/21/2021', name='endDate')
+                button.btn.btn-primary(type='submit') Submit Trip
