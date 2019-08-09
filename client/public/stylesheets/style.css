@@ -1,8 +1,21 @@
+/* 
+.w3-bar {
+   height: 82px;
+   min-width:980px;
+}
+
+.wrapclassnav {
+    margin: 0 auto;
+    padding-top: 13px;
+    width:980px;
+    
+}
 body {
     font-family: 'Montserrat', sans-serif, 'Courier New', Courier, monospace
 }
 
 .w3-container a {
+    text-align: center;
     color: #343f5f;
     text-decoration: none;
 }
@@ -17,16 +30,22 @@ pre {
     background-color: #343f5f;
     color: #fdfeff;
     overflow: scroll;
-    border: 2px #FF8811 solid;
+    border: 10px #FF8811 solid;
     padding: 15px
 }
 
+.w3-card-6{
+    clip-path: inset(5% 5% 15% 2%);
+
+
+}
 .w3-bar-item a:hover {
     background-color: #FF8811;
 }
 
 .w3-card-4 {
-    padding: 15px;
+    object-position: center;
+    margin:50px;
 }
 
 img {
@@ -57,36 +76,10 @@ img {
     background: #9DD9D2;
 }
 
+.w3-container-fluid{
+    border: 10px;
+}
 .logo {
-    position: absolute;
-    top: 79px;
-    right: 93px;
+    position: fixed;
+    right: 400px;
     z-index: 5;
-}
-
-.aboutUser {
-    margin-bottom: 30px;
-}
-
-.userName {
-    margin: 13px;
-}
-
-.userEmail {
-    margin: 13px;
-    position: relative;
-    left: 3px;
-}
-
-.tripName, .startDate, .endDate {
-    margin-bottom: 13px;
-    position: relative;
-}
-
-.tripName {
-    left: 27px;
-}
-
-.endDate {
-    left: 5px;
-}
