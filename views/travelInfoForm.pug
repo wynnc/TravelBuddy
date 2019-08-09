@@ -8,14 +8,11 @@ block content
             form(method='POST' action='/tripDetails')
                 .form-group.chosenTrip
                     label(for='tripDetails') Choose Which Trip Details You Would Like to Add:
-                        -const travelOptions = [{value: 'Flights'}, {value: 'Lodging'}, {value: 'Transport'}]
-                    select#travelOption(name='tripOptions' size='3' multiple required)
-                        each travelOption in travelOptions
-                            option=trip
-                        input(type='submit', value='Submit')
-
+                    select#tripSelect.select.form-control.input-lg(form='chooseTripType', name='tripType')
+                        option(value='0') --Select--
+                        option(value='1') Flights
+                        option(value='2') Lodging
+                        option(value='3') Transport
                 
-                .form-group.userEmail
-                    label(for='email') Email:
-                    input#email.form-control(type='email', placeholder='name@email.com', name='email')
+            
                 button.btn.btn-primary(type='submit') Update Trip Info
