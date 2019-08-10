@@ -17,13 +17,15 @@ body {
     margin: 0;
    
     .formaction {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+
     }
+
     .bar{
         color:$quaternary;
 
@@ -81,7 +83,7 @@ body {
 
 }
 
-.w3-card-6{
+.w36{
 
     display: flex;
     padding: 20px;
@@ -95,6 +97,8 @@ body {
         position: fixed,
         right 400px,
         z-index 5
+
+       
     }
     
     .spanclass {
@@ -143,7 +147,7 @@ pre {
     background-color: $quaternary;
 }
 
-.w3-card-4 {
+.w34 {
 
     margin: 50px;
 }
