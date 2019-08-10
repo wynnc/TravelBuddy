@@ -1,6 +1,6 @@
 // // create new trip
-alert("hello");
-
+// alert("hello");
+// var userId
 $('#submit').on('click', function (event) {
   event.preventDefault();
 
@@ -10,7 +10,7 @@ $('#submit').on('click', function (event) {
     endDate: $('#endDate').val().trim()
   };
 
-  $.post('/api/user', newTrip).then(function (response) {
+  $.post('/api/trips', newTrip).then(function (response) {
     console.log(response);
   });
 });

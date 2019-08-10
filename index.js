@@ -44,6 +44,13 @@ passport.deserializeUser(function (user, done) {
 
 const app = express();
 
+// Static directory
+// middleware
+app.use(express.static('client'));
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
