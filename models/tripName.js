@@ -6,7 +6,17 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },
+    startDate: {
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    endDate: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
+
   });
 
   Trip.associate = function (models) {
