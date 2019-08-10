@@ -2,16 +2,19 @@ doctype html
 html
   head
     title= TravelBuddy
+
     link(rel='stylesheet', href='/public/sassy/main.scss')
     link(rel='stylesheet', href='/public/stylesheets/style.css')
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
     link(rel='icon', href='/public/images/favicon.ico', type="image/x-icon")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat&display=swap")
+    link(rel='stylesheet', href='/public/sassy/main.css')
+
 
     
   body
-    nav.w3-bar.w3-bottombar.bar.w3-border-indigo( role="navigation" )
+    nav.w3-bar.w3-bottombar.bar.w3-border( role="navigation" )
       .wrapclassnav
       .w3-bar-item.w3-text-white Welcome to TravelBuddy
       if locals.user
