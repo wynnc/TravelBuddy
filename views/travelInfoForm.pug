@@ -22,6 +22,12 @@ block content
                         option(value='1') Flights
                         option(value='2') Lodging
                         option(value='3') Transport
-                
-            
+                    -var tripType = document.getElementById('tripSelect').val()
+                    case tripType
+                        when 1
+                            h1 flights!
+                        when 2
+                            h1 Lodging!
+                        when 3
+                            h1 Transport!
                 button.btn.btn-primary(type='submit') Update Trip Info
