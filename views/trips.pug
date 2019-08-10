@@ -2,13 +2,14 @@ extends layout
 
 block content
     .main.container
+
             img(src='/public/images/apple-touch-icon.png' alt='travel buddy smlogo' class='smlogo')
             .w3.w3-left.trips
                 h1.display-4.m-b-2.aboutTrip Current Trips
                 for tripName in Trips
                     .w3-card-6.w3-center.tripPlans
-                         h5.cardTitle Trip Name: #{trips.tripName} #{trips.startDate} - #{trips.endDate}
-                         p.cardText #{trips.tripNotes}
+                        h5.cardTitle Trip Name: #{trips.tripName} #{trips.startDate} - #{trips.endDate}
+                        p.cardText #{trips.tripNotes}
                             ul.flights
                             for id in flights
                                 li.list-group-item = #{flights.airline} #{flights.flightConNum} #{flights.flightTime}
