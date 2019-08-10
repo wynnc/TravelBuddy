@@ -13,14 +13,26 @@ router.get('/updateUser', function (req, res, next) {
 });
 
 router.get('/newTrip', function (req, res, next) {
-  res.render('tripForm.pug', {trips: db.Trip});
+  db.Trip.findAll().then(function (trips) {
+    var tripObject = trips[0].dataValues.tripName;
+    res.render('tripForm.pug', {trips: tripObject});
+  });
 });
 
 router.get('/tripDetails', function (req, res, next) {
-  res.render('travelInfoForm.pug', {trips: db.Trip.tripName});
+  res.render('travelInfoForm.pug', {trips: trips[0].dataValues.tripName});
 });
 
 router.get('/allTrips', function (req, res, next) {
+  db.Trip.findAll().then(function (trips) {
+    console.log(trips[1]);
+    // for (var i = 0; i < trips.length; i++) {
+    //   var tripName = trips[i].dataValues.tripName;
+    //   var startDate = trips[i].dataValues.startDate;
+    //   var endDate = trips[i].dataValues.endDate;
+    //   res.render('trips.pug', {tripName: tripName}, {startDate: startDate}, {endDate: endDate});
+    // };
+  });
   res.render('trips.pug', {title: pageTitle});
 });
 
