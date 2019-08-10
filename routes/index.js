@@ -17,7 +17,7 @@ router.get('/newTrip', function (req, res, next) {
 });
 
 router.get('/tripDetails', function (req, res, next) {
-  res.render('travelInfoForm.pug', {trips: db.trip});
+  res.render('travelInfoForm.pug', {trips: 'Los Angeles'});
 });
 
 router.get('/allTrips', function (req, res, next) {

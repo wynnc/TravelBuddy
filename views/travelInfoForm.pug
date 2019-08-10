@@ -11,8 +11,8 @@ block content
                     each trip in tripNames
                         option=trip
                    
-            each trip in trips            
-                h1.display-4.m-b-2.travelPlans Trip Name: #{trips.tripName}
+                       
+                h1.display-4.m-b-2.travelPlans Trip Name: #{trips}
 
             form(method='POST' action='/tripDetails')
                 .form-group.chosenTrip
