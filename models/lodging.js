@@ -24,6 +24,9 @@ module.exports = function (sequelize, DataTypes) {
         isDate: true
       }
     },
+    checkIn: {
+      type: DataTypes.STRING
+    },
     cancelledLodg: {
       type: DataTypes.BOOLEAN,
       defaultValue: false

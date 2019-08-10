@@ -3,7 +3,16 @@ extends layout
 block content
     .main.container
         .w3-card-4.w3-center.travelform
-            h1.display-4.m-b-2.travelPlans Trip Name: 
+        -var tripNames = ["LA", "NYC", 'Wales']
+            
+            form(onClick='option:selected' name='tripChoice')
+                label(for='currentTrip') Trips
+                select(name='dropDown', id='')
+                    each trip in tripNames
+                        option=trip
+                   
+            each trip in trips            
+                h1.display-4.m-b-2.travelPlans Trip Name: #{trips.tripName}
 
             form(method='POST' action='/tripDetails')
                 .form-group.chosenTrip
