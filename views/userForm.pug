@@ -3,7 +3,9 @@ extends layout
 
 block content
     .main.container
-        .w3-card-4.w3-center.userform
+        img(src='/public/images/apple-touch-icon.png' alt='travel buddy smlogo' class='smlogo')
+        .w3.w3-center.userform
+            .travelBuddylogo
             h1.display-4.m-b-2.aboutUser Tell us about Yourself
 
             form(method='POST' action='/api/users')
