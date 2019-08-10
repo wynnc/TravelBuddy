@@ -11,6 +11,8 @@ body {
     border: 0;
     font-size: 100%;
     font: inherit; }
+  body h1, body h2 {
+    font-family: "Imprima", sans-serif; }
   body .bar {
     color: #FF8811; }
   body .smlogo {
