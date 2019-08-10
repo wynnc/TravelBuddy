@@ -8,28 +8,33 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     startDate: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       validate: {
         isDate: true
       }
     },
     endDate: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       validate: {
         isDate: true
       }
     },
     tripNotes: {
       type: DataTypes.STRING
+    },
+    userId: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
+
   });
 
   Trip.associate = function (models) {
-    Trip.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    // Trip.belongsTo(models.User, {
+    //   foreignKey: {
+    //     allowNull: false
+    //   }
+    // });
     Trip.hasMany(models.Flight, {
       onDelete: 'cascade'
     });
