@@ -2,7 +2,9 @@ doctype html
 html
   head
     title= TravelBuddy
-    //- link(rel='stylesheet', href='/public/stylesheets/style.css')
+
+    link(rel='stylesheet', href='/public/sassy/main.scss')
+    link(rel='stylesheet', href='/public/stylesheets/style.css')
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
     link(rel='icon', href='/public/images/favicon.ico', type="image/x-icon")
@@ -20,9 +22,11 @@ html
         a(href="/").w3-bar-item.w3-button Home
         a(href="/user" ).w3-bar-item.w3-button Profile
         a(href="/updateUser").w3-bar-item.w3-button Edit Profile
-        a(href="/trips").w3-bar-item.w3-button See Trips
-        a(href="/newtrip").w3-bar-item.w3-button Create New Trip
+        a(href="/tripDetails").w3-bar-item.w3-button Update Trips
+        a(href="/newTrip").w3-bar-item.w3-button Create New Trip
+        a(href="/api/trips").w3-bar-item.w3-button See All Trips
         a(id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Log Out
       else
         a(id="qsLoginBtn" href="/login").w3-bar-item.w3-button Log In
     block content
+

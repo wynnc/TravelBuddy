@@ -3,14 +3,14 @@ extends layout
 
 block content
     .main.container
-        .w3-card-4.w3-right.userform
-            h1.display-4.m-b-2 Tell us about Yourself
+        .w3-card-4.w3-center.userform
+            h1.display-4.m-b-2.aboutUser Tell us about Yourself
 
-            form(method='POST' action='/userreg')
-                .form-group
+            form(method='POST' action='/api/users')
+                .form-group.userName
                     label(for='name') Name:
                     input#name.form-control(type='text', placeholder='first and last', name='name')
-                .form-group
+                .form-group.userEmail
                     label(for='email') Email:
                     input#email.form-control(type='email', placeholder='name@email.com', name='email')
                 button.btn.btn-primary(type='submit') Register
