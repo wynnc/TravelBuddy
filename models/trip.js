@@ -6,6 +6,21 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },
+    startDate: {
+      type: DataTypes.DATEONLY,
+      validate: {
+        isDate: true
+      }
+    },
+    endDate: {
+      type: DataTypes.DATEONLY,
+      validate: {
+        isDate: true
+      }
+    },
+    tripNotes: {
+      type: DataTypes.STRING
     }
   });
 

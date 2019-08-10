@@ -1,4 +1,4 @@
-/* 
+
 .w3-bar {
    height: 82px;
    min-width:980px;
@@ -72,7 +72,7 @@ img {
 
 .welcome {
     position: absolute;
-    top: 58px;
+    top: 96px;
     background: #9DD9D2;
 }
 
@@ -81,5 +81,11 @@ img {
 }
 .logo {
     position: fixed;
-    right: 400px;
-    z-index: 5;
+    margin-top: 57px;
+    margin-right: -307px;
+    z-index: 5; 
+}
+
+nav {
+    z-index: 10;
+}
