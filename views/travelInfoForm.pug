@@ -1,19 +1,16 @@
-extends layout
+extends user
 
 block content
     .main.container
         img(src='/public/images/apple-touch-icon.png' alt='travel buddy smlogo' class='smlogo')
         .w3-card-4.w3-center.travelform
-        -var tripNames = ["LA", "NYC", 'Wales']
             
-            form(onClick='option:selected' name='tripChoice')
+            form(method='POST' action='/tripDetails')
                 label(for='currentTrip') Trips
                 select(name='dropDown', id='')
-                    each trip in tripNames
+                    each trip in #{trips}
                         option=trip
                    
-                       
-                h1.display-4.m-b-2.travelPlans Trip Name: #{trips}
 
             form(method='POST' action='/tripDetails')
                 .form-group.chosenTrip
@@ -23,6 +20,7 @@ block content
                         option(value='1') Flights
                         option(value='2') Lodging
                         option(value='3') Transport
-                
-            
+                        option(value='4') All
+                 h1.display-4.m-b-2.travelPlans Trip Name: #{trips}
+
                 button.btn.btn-primary(type='submit') Update Trip Info

@@ -13,11 +13,11 @@ router.get('/updateUser', function (req, res, next) {
 });
 
 router.get('/newTrip', function (req, res, next) {
-  res.render('tripForm.pug', {title: pageTitle});
+  res.render('tripForm.pug', {trips: db.Trip});
 });
 
 router.get('/tripDetails', function (req, res, next) {
-  res.render('travelInfoForm.pug', {trips: 'Los Angeles'});
+  res.render('travelInfoForm.pug', {trips: db.Trip.tripName});
 });
 
 router.get('/allTrips', function (req, res, next) {
