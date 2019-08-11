@@ -3,12 +3,17 @@
 // var userId
 
 $(document).ready(function () {
+//   var selectedTrip;
   $(document).on('click', '#tripForm', handleTripFormSubmit);
-  $(document).on('click', '#tripDetails', handleUpdateTripForm);
-  $('select.tripName').change(function () {
-    var selectedTrip = $(this).children('option:selected').val();
-    alert('You have selected the country - ' + selectedTrip);
-  });
+
+//   $('select.tripName').change(function () {
+//     selectedTrip = $(this).children('option:selected').val();
+
+//     // console.log(tripId);
+//     // alert(tripId);
+//   });
+
+  $('#tripDetails').on('click', handleUpdateTripForm);
 
   function handleTripFormSubmit () {
     $('#submit').on('click', function (event) {
@@ -27,24 +32,26 @@ $(document).ready(function () {
     });
   }
 
-  function handleUpdateTripForm () {
-    // create flight/lodging/transport
-    $('#updateTrip').on('click', function (event) {
-      event.preventDefault();
-      thisIsIt(); alert('you are in the update');
-      // $(document).ready(function(){
-      //     $("select.country").change(function(){
-      //         var selectedCountry = $(this).children("option:selected").val();
-      //         alert("You have selected the country - " + selectedCountry);
-      //     });
-      // });
-      //   var travelType = $('#tripSelect').children('option:selected').val();
-      //   alert('You have selected ' + travelType);
-    });
+  // create flight/lodging/transport
+//   $('#updateTrip').on('click', function (event) {
+//     event.preventDefault();
+//     // alert('you are in the update');
+//     //   var selectedTrip = $('select.tripName').children('option:selected').val();
+//     // $(document).ready(function(){
+//     //     $("select.country").change(function(){
+//     //         var selectedCountry = $(this).children("option:selected").val();
+//     //         alert("You have selected the country - " + selectedCountry);
+//     //     });
+//     // });
+//     //   var travelType = $('#tripSelect').children('option:selected').val();
+//     //   alert('You have selected ' + travelType);
+    
+//   });
 
-    //   var tripId =
-    alert('you made it!');
-  }
+  function handleUpdateTripForm () {
+      var selectedTrip = $('.tripName').val();
+    alert(selectedTrip);
+  };
 
   //   $('.devour-form').on('submit', function (event) {
   //     event.preventDefault();
