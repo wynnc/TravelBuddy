@@ -29,15 +29,7 @@ router.get('/tripDetails', function (req, res, next) {
 });
 
 router.get('/allForms', function (req, res, next) {
-  db.Trip.findAll({
-    where: {
-      userId: req.user.id
-    }
-  }).then(function (trips) {
-    res.render('allForms.pug', {title: pageTitle, trips: trips});
-  }).catch(function (err) {
-    res.json(err);
-  });
+  res.render('allForms.pug', {title: pageTitle});
 });
 
 router.get('/flightForm', function (req, res, next) {
@@ -53,7 +45,33 @@ router.get('/lodgingForm', function (req, res, next) {
 });
 
 router.get('/allTrips', function (req, res, next) {
-  res.render('trips.pug', {title: pageTitle});
+  db.Trip.findAll({
+    where: {
+      userId: req.user.id
+    },
+    include: [
+      {
+        model: db.Flight
+      },
+      {
+        model: db.Lodging
+      },
+      {
+        model: db.Transport
+      }
+    ]
+  }).then(function (trips) {
+    console.log(trips);
+    db.Flight.findAll({}).then(function (flights) {
+      db.Transport.findAll({}).then(function (transports) {
+        db.Lodging.findAll({}).then(function (lodgings) {
+          res.render('trips.pug', {title: pageTitle, trips: trips, flights: flights, transports: transports, lodgings: lodgings});
+        });
+      });
+    }).catch(function (err) {
+      res.json(err);
+    });
+  });
 });
 
 // module.exports = router;
@@ -62,7 +80,7 @@ const apiRoutes = require('./api'); // index.js
 // API Routes
 router.use('/api', apiRoutes);
 
-// If no API routes are hit, send the React app
+// If no API routes are hit send home
 router.use(function (req, res) {
   res.sendFile(path.join(__dirname, '../views'));
 });

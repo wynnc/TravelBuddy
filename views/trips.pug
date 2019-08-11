@@ -2,22 +2,22 @@ extends layout
 
 block content
     .main.container
-        .formaction
+
             img(src='/public/images/apple-touch-icon.png' alt='travel buddy smlogo' class='smlogo')
             .w3.w3-left.trips
                 h1.display-4.m-b-2.aboutTrip Current Trips
-                for tripName in Trips
+                for trip in trips
                     .w3-card-6.w3-center.tripPlans
-                         h5.cardTitle Trip Name: #{trips.tripName} #{trips.startDate} - #{trips.endDate}
-                         p.cardText #{trips.tripNotes}
-                            ul.flights
-                            for id in flights
-                                li.list-group-item = #{flights.airline} #{flights.flightConNum} #{flights.flightTime}
-                            for id in transports
-                                li.list-group-item = #{transports.dealer} #{transports.carConNum} #{transports.tranTime}
-                            for id in lodgings
-                                li.list-group-item = #{lodgings.lodgingName} #{lodgings.lodgingConNum} #{lodgings.checkIn}
-                    .w3-card-6.w3-center.tripLinks
-                        a(href=).w3-bar-item.w3-button Flights
-                        a(href=).w3-bar-item.w3-button Transportation
-                        a(href=).w3-bar-item.w3-button Lodging
+                            h5.cardTitle Trip Name: #{trip.tripName}  
+                            h5.cardText Dates: #{trip.startDate} thru #{trip.endDate}
+                            p.cardText Notes: #{trip.tripNotes}
+                            if flights
+                                for flight in flights
+                                    li.list-group-item = #{flight.airline} #{flight.flightConNum} #{flight.flightTime}
+                            if transports
+                                for transport in transports
+                                    li.list-group-item = #{transport.dealer} #{transport.carConNum} #{transport.tranTime}
+                            if lodgings
+                                for lodging in lodgings
+                                    li.list-group-item = #{lodging.lodgingName} #{lodging.lodgingConNum} #{lodging.checkIn}
+                    

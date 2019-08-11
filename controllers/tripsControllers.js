@@ -17,7 +17,6 @@ module.exports = {
   },
   create: function (req, res) {
     console.log('This is the user: ', req.user);
-    
     req.body.userId = req.user.id;
     console.log('This is the body: ', req.body);
     db.Trip

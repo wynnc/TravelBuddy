@@ -13,19 +13,19 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     dateStartFly: {
-      type: DataTypes.DATEONLY,
-      validate: {
-        isDate: true
-      }
+      type: DataTypes.STRING
+      // validate: {
+      //   isDate: true
+      // }
     },
     dateEndFly: {
-      type: DataTypes.DATEONLY,
-      validate: {
-        isDate: true
-      }
+      type: DataTypes.STRING
+      // validate: {
+      //   isDate: true
+      // }
     },
     flightTime: {
-      type: DataTypes.TIME
+      type: DataTypes.STRING
     },
     cancelledFly: {
       type: DataTypes.BOOLEAN,
