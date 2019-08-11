@@ -13,27 +13,43 @@ router.get('/updateUser', function (req, res, next) {
 });
 
 router.get('/newTrip', function (req, res, next) {
-  db.Trip.findAll().then(function (trips) {
-    var tripObject = trips[0].dataValues.tripName;
-    res.render('tripForm.pug', {trips: tripObject});
-  });
+  res.render('tripForm.pug', {title: pageTitle});
 });
 
 router.get('/tripDetails', function (req, res, next) {
-  res.render('travelInfoForm.pug', {trips: trips[0].dataValues.tripName});
+  db.Trip.findAll({
+    where: {
+      userId: req.user.id
+    }
+  }).then(function (trips) {
+    res.render('travelInfoForm.pug', {title: pageTitle, trips: trips});
+  }).catch(function (err) {
+    res.json(err);
+  });
+});
+
+router.get('/flightForm', function (req, res, next) {
+  res.render('flightInfo.pug', {title: pageTitle});
+});
+
+router.get('/transportForm', function (req, res, next) {
+  res.render('transportInfo.pug', {title: pageTitle});
+});
+
+router.get('/lodgingForm', function (req, res, next) {
+  res.render('lodgingInfo.pug', {title: pageTitle});
 });
 
 router.get('/allTrips', function (req, res, next) {
-  db.Trip.findAll().then(function (trips) {
-    console.log(trips[1]);
-    // for (var i = 0; i < trips.length; i++) {
-    //   var tripName = trips[i].dataValues.tripName;
-    //   var startDate = trips[i].dataValues.startDate;
-    //   var endDate = trips[i].dataValues.endDate;
-    //   res.render('trips.pug', {tripName: tripName}, {startDate: startDate}, {endDate: endDate});
-    // };
+  db.Trip.findAll({
+    where: {
+      userId: req.user.id
+    }
+  }).then(function (trips) {
+    res.render('trips.pug', {title: pageTitle, trips: trips});
+  }).catch(function (err) {
+    res.json(err);
   });
-  res.render('trips.pug', {title: pageTitle});
 });
 
 // module.exports = router;
@@ -42,7 +58,7 @@ const apiRoutes = require('./api'); // index.js
 // API Routes
 router.use('/api', apiRoutes);
 
-// If no API routes are hit, send the React app
+// If no API routes are hit send home
 router.use(function (req, res) {
   res.sendFile(path.join(__dirname, '../views'));
 });

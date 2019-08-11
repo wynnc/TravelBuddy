@@ -7,7 +7,8 @@ $('#submit').on('click', function (event) {
   var newTrip = {
     tripName: $('#firstName').val().trim(),
     startDate: $('#startDate').val().trim(),
-    endDate: $('#endDate').val().trim()
+    endDate: $('#endDate').val().trim(),
+    userId: $('#user.id')
   };
 
   $.post('/api/trips', newTrip).then(function (response) {

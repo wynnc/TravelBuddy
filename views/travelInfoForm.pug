@@ -1,26 +1,28 @@
-extends user
+extends layout
 
 block content
     .main.container
         img(src='/public/images/apple-touch-icon.png' alt='travel buddy smlogo' class='smlogo')
         .w3-card-4.w3-center.travelform
             
-            form(method='POST' action='/tripDetails')
+            form(method='POST' action='/api/trips')
                 label(for='currentTrip') Trips
                 select(name='dropDown', id='')
-                    each trip in #{trips}
-                        option=trip
-                   
+                    if trips
+                        for trip in trips
+                            option=trip.tripName
+                                
 
-            form(method='POST' action='/tripDetails')
+            form(method='POST' action='/api/trips')
                 .form-group.chosenTrip
                     label(for='tripDetails') Choose Which Trip Details You Would Like to Add:
                     select#tripSelect.select.form-control.input-lg(form='chooseTripType', name='tripType')
                         option(value='0') --Select--
-                        option(value='1') Flights
-                        option(value='2') Lodging
-                        option(value='3') Transport
-                        option(value='4') All
-                 h1.display-4.m-b-2.travelPlans Trip Name: #{trips}
+                        option(value='Flights') Flights
+                        option(value='Lodging') Lodging
+                        option(value='Transport') Transport
+                        option(value='All') All
 
-                button.btn.btn-primary(type='submit') Update Trip Info
+                            
+
+                button.btn.btn-primary(type='submit') Go to Trip Info
