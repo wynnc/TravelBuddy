@@ -17,7 +17,39 @@ router.get('/newTrip', function (req, res, next) {
 });
 
 router.get('/tripDetails', function (req, res, next) {
-  res.render('travelInfoForm.pug', {trips: 'Los Angeles'});
+  db.Trip.findAll({
+    where: {
+      userId: req.user.id
+    }
+  }).then(function (trips) {
+    res.render('travelInfoForm.pug', {title: pageTitle, trips: trips});
+  }).catch(function (err) {
+    res.json(err);
+  });
+});
+
+router.get('/allForms', function (req, res, next) {
+  db.Trip.findAll({
+    where: {
+      userId: req.user.id
+    }
+  }).then(function (trips) {
+    res.render('allForms.pug', {title: pageTitle, trips: trips});
+  }).catch(function (err) {
+    res.json(err);
+  });
+});
+
+router.get('/flightForm', function (req, res, next) {
+  res.render('flightInfo.pug', {title: pageTitle});
+});
+
+router.get('/transportForm', function (req, res, next) {
+  res.render('transportInfo.pug', {title: pageTitle});
+});
+
+router.get('/lodgingForm', function (req, res, next) {
+  res.render('lodgingInfo.pug', {title: pageTitle});
 });
 
 router.get('/allTrips', function (req, res, next) {
