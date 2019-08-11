@@ -28,6 +28,10 @@ router.get('/tripDetails', function (req, res, next) {
   });
 });
 
+router.get('/allForms', function (req, res, next) {
+  res.render('allForms.pug', {title: pageTitle});
+});
+
 router.get('/flightForm', function (req, res, next) {
   res.render('flightInfo.pug', {title: pageTitle});
 });
