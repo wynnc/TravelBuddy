@@ -48,11 +48,29 @@ router.get('/allTrips', function (req, res, next) {
   db.Trip.findAll({
     where: {
       userId: req.user.id
-    }
+    },
+    include: [
+      {
+        model: db.Flight
+      },
+      {
+        model: db.Lodging
+      },
+      {
+        model: db.Transport
+      }
+    ]
   }).then(function (trips) {
-    res.render('trips.pug', {title: pageTitle, trips: trips});
-  }).catch(function (err) {
-    res.json(err);
+    console.log(trips);
+    db.Flight.findAll({}).then(function (flights) {
+      db.Transport.findAll({}).then(function (transports) {
+        db.Lodging.findAll({}).then(function (lodgings) {
+          res.render('trips.pug', {title: pageTitle, trips: trips, flights: flights, transports: transports, lodgings: lodgings});
+        });
+      });
+    }).catch(function (err) {
+      res.json(err);
+    });
   });
 });
 
