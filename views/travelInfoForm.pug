@@ -19,9 +19,9 @@ block content
                     label(for='tripDetails') Choose Which Trip Details You Would Like to Add:
                     select#tripSelect.select.form-control.input-lg(form='chooseTripType', name='tripType')
                         option(value='0') --Select--
-                        option(value='1') Flights
-                        option(value='2') Lodging
-                        option(value='3') Transport
+                        option(value='flight') Flights
+                        option(value='lodging') Lodging
+                        option(value='transport') Transport
                 
             
-                button.btn.btn-primary(type='submit') Update Trip Info
+                button.btn.btn-primary(id='updateTrip' type='submit') Update Trip Info
