@@ -63,9 +63,6 @@ router.get('/allTrips', function (req, res, next) {
   }).then(function (trips) {
     console.log(trips);
     db.Flight.findAll({
-      where: {
-        TripId: 
-      }
     }).then(function (flights) {
       db.Transport.findAll({}).then(function (transports) {
         db.Lodging.findAll({}).then(function (lodgings) {

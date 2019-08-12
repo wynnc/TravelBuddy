@@ -5,11 +5,7 @@ block content
         img(src='/public/images/apple-touch-icon.png' alt='travel buddy smlogo' class='smlogo')
         .w3-card-4.w3-center.travelform
             
-<<<<<<< HEAD
-            form(id='chooseTrip')
-=======
             form(method='POST' action='/api/trips' id='updateTrip')
->>>>>>> 2e8d843320389e45676bdf6618c8787639e9e70b
                 label(for='currentTrip') Trips
                 select(name='dropDown', class='tripName')
                     if trips
@@ -18,20 +14,9 @@ block content
 
                                 
 
-<<<<<<< HEAD
-            form(id='updates')
-                .form-group.chosenTrip
-                    label(for='tripDetails') Choose Which Trip Details You Would Like to Add:
-                    select#tripSelect.select.form-control.input-lg(form='chooseTripType', name='tripType')
-                        option(value='0') --Select--
-                        option(value='Flights') Flights
-                        option(value='Lodging') Lodging
-                        option(value='Transport') Transport
-                        option(value='All') All
-=======
                 h2.display-4.m-b-2.aboutFlight Flight Information
 
-                form(method='POST' action='/api/flights')
+                form(method='POST' action='/api/flights' id='flightForm')
                     .form-group.airline
                         label(for='airline') Airline Name:
                         input#airline.form-control(type='text', placeholder='Virgin Airlines', name='airline')
@@ -55,9 +40,8 @@ block content
                         input#flightNotes.form-control(type='text', placeholder='Bring Passport', name='flightNotes') 
                 
                 h2.display-4.m-b-2.aboutFlight Lodging Information
->>>>>>> 2e8d843320389e45676bdf6618c8787639e9e70b
 
-                form(method='POST' action='/api/lodgings')
+                form(method='POST' action='/api/lodgings' id='lodgingForm')
                     .form-group.lodgingName
                         label(for='lodgingName') Lodging Name:
                         input#lodgingName.form-control(type='text', placeholder='Marriot', name='lodgingName')
@@ -79,7 +63,7 @@ block content
                         
                 h2.display-4.m-b-2.aboutTrans Transport Information
 
-                form(method='POST' action='/api/transports')
+                form(method='POST' action='/api/transports' id='transportForm')
                     .form-group.dealer
                         label(for='dealer') Dealer Name:
                         input#dealer.form-control(type='text', placeholder='Budget', name='dealer')

@@ -7,10 +7,11 @@ block content
             .w3.w3-left.trips
                 h1.display-4.m-b-2.aboutTrip Current Trips
                 for trip in trips
+                    -var tripId=trip.id
                     .w3-card-6.w3-center.tripPlans
                             h5.cardTitle Trip Name: #{trip.tripName}  
                             h5.cardText Dates: #{trip.startDate} thru #{trip.endDate}
-                            p.cardText Notes: #{trip.tripNotes}
+                            p.cardText Notes: #{trip.tripNotes} 
                             if !cancelled
                                 a(class='btn cancel-trip' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Trip
                             else
@@ -18,29 +19,45 @@ block content
                             a(href='/updateTrip' class='btn update-trip' data-id=this.id).w3-bar-item.w3-button Update Trip
                             
                             if flights
-                                for flight in flights
-                                    li.list-group-item = #{flight.airline} #{flight.flightConNum} #{flight.flightTime}
-                                    if !cancelled
-                                        a(class='btn cancel-flight' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Flight
-                                    else
-                                        a(class='btn cancel-flight' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Flight
-                                    a(href='/updateFlight' class='btn update-flight' data-id=this.id).w3-bar-item.w3-button Update Flight
-                            
+                                -var found = 0
+                                for flight, index in flights
+                                    -var flightId = flight.TripId
+                                    if (flightId == tripId)
+                                            - found = 1
+                                            li.list-group-item = #{flight.airline} #{flight.flightConNum} #{flight.flightTime}
+                                                if !cancelled
+                                                    a(class='btn cancel-flight' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Flight
+                                                else
+                                                    a(class='btn cancel-flight' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Flight
+                                                    a(href='/updateFlight' class='btn update-flight' data-id=this.id).w3-bar-item.w3-button Update Flight
+                                    else if (found == 0 && index == flights.length -1)
+                                        p.cardText You have no scheduled Flights for this Trip
                             if transports
-                                for transport in transports
-                                    li.list-group-item = #{transport.dealer} #{transport.carConNum} #{transport.tranTime}
-                                    if !cancelled
-                                        a(class='btn cancel-trans' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Transport
-                                    else
-                                        a(class='btn cancel-trans' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Transport
-                                    a(href='/updateTransport' class='btn update-transport' data-id=this.id).w3-bar-item.w3-button Update Transport
-                            
+                                -var found = 0
+                                for transport, index in transports
+                                    -var transportId = transport.TripId
+                                    if (transportId == tripId)
+                                        - found = 1
+                                        li.list-group-item = #{transport.dealer} #{transport.carConNum} #{transport.tranTime}
+                                            if !cancelled
+                                                a(class='btn cancel-trans' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Transport
+                                            else
+                                                a(class='btn cancel-trans' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Transport
+                                                a(href='/updateTransport' class='btn update-transport' data-id=this.id).w3-bar-item.w3-button Update Transport
+                                    else if (found == 0 && index == transports.length -1)
+                                        p.cardText You have no scheduled Transport plans for this Trip
+
                             if lodgings
-                                for lodging in lodgings
-                                    li.list-group-item = #{lodging.lodgingName} #{lodging.lodgingConNum} #{lodging.checkIn}
-                                    if !cancelled
-                                        a(class='btn cancel-lodging' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Lodging
-                                    else
-                                        a(class='btn cancel-lodging' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Lodging
-                                    a(href='/updateLodging' class='btn update-lodging' data-id=this.id).w3-bar-item.w3-button Update Lodging
-                            
+                                -var found = 0
+                                for lodging, index in lodgings
+                                    -var lodgingId = lodging.TripId
+                                    if (lodgingId == tripId)
+                                        - found = 1
+                                        li.list-group-item = #{lodging.lodgingName} #{lodging.lodgingConNum} #{lodging.checkIn}
+                                            if !cancelled
+                                                a(class='btn cancel-lodging' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Lodging
+                                            else
+                                                a(class='btn cancel-lodging' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Lodging
+                                                a(href='/updateLodging' class='btn update-lodging' data-id=this.id).w3-bar-item.w3-button Update Lodging
+                                    else if (found == 0 && index == lodgings.length -1)
+                                        p.cardText You have no scheduled Lodging plans for this Trip

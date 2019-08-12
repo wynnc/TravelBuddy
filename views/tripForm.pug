@@ -6,11 +6,7 @@ block content
         .w3.w3-center.tripform
             h1.display-4.m-b-2.aboutTrip Add New Trip 
 
-<<<<<<< HEAD
-            form(id='tripForm' type='POST' action='/user')
-=======
-            form(method='POST' action='/api/trips' id='tripForm')
->>>>>>> 2e8d843320389e45676bdf6618c8787639e9e70b
+            form(method='POST' id='tripForm' action='/api/trips')
                 .form-group.tripName
                     label(for='tripName') Name:
                     input#tripName.form-control(type='text', placeholder='Trip Name', name='tripName')
@@ -23,6 +19,6 @@ block content
                 .form-group.tripNotes
                     label(for='tripNotes') Trip Notes:
                     input#tripNotes.form-control(type='text', placeholder='Bring an umbrella', name='tripNotes')
-                button.btn.btn-primary(type='submit' window.location.href = "/allTrips") Submit Trip
+                button.btn.btn-primary(type='submit') Submit Trip
                
                 
