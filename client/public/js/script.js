@@ -6,7 +6,13 @@ $(document).ready(function () {
 //   var selectedTrip;
   $(document).on('click', '#tripForm', handleTripFormSubmit);
 
-  $('#tripDetails').on('click', handleUpdateTripForm);
+  $('#tripDetails').on('click', handleAddDetailsForm);
+
+  // $('.update-trip').on('click', function () {
+  //   var updateId = $(this).attr('data-id');
+  //   // alert(updateId);
+  //   handleUpdateTripForm(updateId);
+  // });
 
   function handleTripFormSubmit () {
     $('#submit').on('click', function (event) {
@@ -18,7 +24,7 @@ $(document).ready(function () {
         endDate: $('#endDate').val().trim(),
         userId: $('#user.id')
       };
-      
+
       $.post('/api/trips', newTrip).then(function (res) {
         console.log(res);
       });
@@ -27,8 +33,7 @@ $(document).ready(function () {
 
   // create flight/lodging/transport
 
-  function handleUpdateTripForm () {
-
+  function handleAddDetailsForm () {
     var selectedTrip = $('.tripName').val();
 
     selectedTrip = parseInt(selectedTrip);
@@ -83,12 +88,30 @@ $(document).ready(function () {
     });
     // console.log(newFlight);
   };
-
 });
 
-
 // update trip
+// function handleUpdateTripForm (updateId) {
+//   var id = updateId
+//   getTrips();
+//   // alert('you are in the update' + updateId);
+//   // $.put('/api/trips', updateTrip).then(function (response) {
+//   $.ajax({
+//     method: 'PUT',
+//     url: '/api/trips',
+//     data: trip
+//   })
+//     .then(function () {
+//       window.location.href = '/allTrips';
+//     });
+// }
 
-
+// var trips = [];
+// // This function grabs todos from the database and updates the view
+// function getTrips () {
+//   $.get('/api/trips', function (data) {
+//     trips = data;
+//   });
+// }
 
 // // display trips
