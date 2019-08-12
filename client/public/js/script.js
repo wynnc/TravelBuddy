@@ -84,7 +84,9 @@ $(document).ready(function () {
     });
     // console.log(newFlight);
   };
+
 });
+
 
 // update trip
 

@@ -16,6 +16,14 @@ router.get('/newTrip', function (req, res, next) {
   res.render('tripForm.pug', {title: pageTitle});
 });
 
+router.get('/updateTrip', function (req, res, next) {
+  res.render('updateTrip.pug', {title: pageTitle});
+});
+
+router.get('/comingSoon', function (req, res, next) {
+  res.render('redirect.pug', {title: pageTitle});
+});
+
 router.get('/tripDetails', function (req, res, next) {
   db.Trip.findAll({
     where: {
