@@ -6,12 +6,6 @@ $(document).ready(function () {
 //   var selectedTrip;
   $(document).on('click', '#tripForm', handleTripFormSubmit);
 
-  //   $('select.tripName').change(function () {
-  //     selectedTrip = $(this).children('option:selected').val();
-
-  //     // console.log(tripId);
-  //     // alert(tripId);
-  //   });
 
   $('#tripDetails').on('click', handleUpdateTripForm);
 
@@ -75,23 +69,22 @@ $(document).ready(function () {
     };
 
     // console.log(newFlight);
-    // $.post('/api/flights', newFlight).then(function (response) {
-    //   console.log(response);
-    // });
+    $.post('/api/flights', newFlight).then(function (response) {
+      console.log(response);
+    });
 
     // console.log(newLodge);
-    // $.post('/api/lodgings', newLodge).then(function (response) {
-    //   console.log(response);
-    // });
+    $.post('/api/lodgings', newLodge).then(function (response) {
+      console.log(response);
+    });
 
-    console.log(newTrans);
+    // console.log(newTrans);
     $.post('/api/transports', newTrans).then(function (response) {
       console.log(response);
     });
     // console.log(newFlight);
   };
 });
-
 
 // update trip
 
