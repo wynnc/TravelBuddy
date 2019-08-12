@@ -1,10 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   var Trip = sequelize.define('Trip', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
+
     tripName: {
       type: DataTypes.STRING,
       allowNull: false,
