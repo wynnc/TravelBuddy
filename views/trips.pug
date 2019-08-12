@@ -11,13 +11,36 @@ block content
                             h5.cardTitle Trip Name: #{trip.tripName}  
                             h5.cardText Dates: #{trip.startDate} thru #{trip.endDate}
                             p.cardText Notes: #{trip.tripNotes}
+                            if !cancelled
+                                a(class='btn cancel-trip' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Trip
+                            else
+                                a(class='btn cancel-trip' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Trip
+                            a(href='/updateTrip' class='btn update-trip' data-id=this.id).w3-bar-item.w3-button Update Trip
+                            
                             if flights
                                 for flight in flights
                                     li.list-group-item = #{flight.airline} #{flight.flightConNum} #{flight.flightTime}
+                                    if !cancelled
+                                        a(class='btn cancel-flight' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Flight
+                                    else
+                                        a(class='btn cancel-flight' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Flight
+                                    a(href='/updateFlight' class='btn update-flight' data-id=this.id).w3-bar-item.w3-button Update Flight
+                            
                             if transports
                                 for transport in transports
                                     li.list-group-item = #{transport.dealer} #{transport.carConNum} #{transport.tranTime}
+                                    if !cancelled
+                                        a(class='btn cancel-trans' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Transport
+                                    else
+                                        a(class='btn cancel-trans' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Transport
+                                    a(href='/updateTransport' class='btn update-transport' data-id=this.id).w3-bar-item.w3-button Update Transport
+                            
                             if lodgings
                                 for lodging in lodgings
                                     li.list-group-item = #{lodging.lodgingName} #{lodging.lodgingConNum} #{lodging.checkIn}
-                    
+                                    if !cancelled
+                                        a(class='btn cancel-lodging' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Lodging
+                                    else
+                                        a(class='btn cancel-lodging' data-id=this.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Lodging
+                                    a(href='/updateLodging' class='btn update-lodging' data-id=this.id).w3-bar-item.w3-button Update Lodging
+                            
