@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
       // }
     },
     tranTime: {
-      type: DataTypes.TIME
+      type: DataTypes.STRING
     },
     cancelledTran: {
       type: DataTypes.BOOLEAN,

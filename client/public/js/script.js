@@ -74,15 +74,15 @@ $(document).ready(function () {
       TripId: selectedTrip
     };
 
-    console.log(newFlight);
-    $.post('/api/flights', newFlight).then(function (response) {
-      console.log(response);
-    });
+    // console.log(newFlight);
+    // $.post('/api/flights', newFlight).then(function (response) {
+    //   console.log(response);
+    // });
 
-    console.log(newLodge);
-    $.post('/api/lodgings', newLodge).then(function (response) {
-      console.log(response);
-    });
+    // console.log(newLodge);
+    // $.post('/api/lodgings', newLodge).then(function (response) {
+    //   console.log(response);
+    // });
 
     console.log(newTrans);
     $.post('/api/transports', newTrans).then(function (response) {
