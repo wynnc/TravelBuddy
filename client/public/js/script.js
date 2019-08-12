@@ -1,20 +1,27 @@
 // // create new trip
 // alert("hello");
 // var userId
-$('#submit').on('click', function (event) {
-  event.preventDefault();
+var tripForm = $('#tripForm');
 
+$(tripForm).on('submit', function (event) {
+  event.preventDefault();
+  
   var newTrip = {
     tripName: $('#firstName').val().trim(),
     startDate: $('#startDate').val().trim(),
     endDate: $('#endDate').val().trim(),
+    tripNotes: $('#tripNotes').val().trim(),
     userId: $('#user.id')
-  };
 
-  $.post('/api/trips', newTrip).then(function (response) {
-    console.log(response);
-  });
+  };
+  $.post('/api/trips', newTrip, function (res) {
+    window.location.href = '/user';
+    console.log(res);
 });
+
+
+
+
 
 
 // $(document).ready(function () {

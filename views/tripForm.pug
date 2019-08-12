@@ -3,10 +3,10 @@ extends layout
 block content
     .main.container
         img(src='/public/images/apple-touch-icon.png' alt='travel buddy smlogo' class='smlogo')
-        .w3.w3-center.userform
+        .w3.w3-center.tripform
             h1.display-4.m-b-2.aboutTrip Add New Trip 
 
-            form(method='POST' action='/api/trips')
+            form(id='tripForm' type='POST' action='/user')
                 .form-group.tripName
                     label(for='tripName') Name:
                     input#tripName.form-control(type='text', placeholder='Trip Name', name='tripName')
@@ -19,4 +19,6 @@ block content
                 .form-group.tripNotes
                     label(for='tripNotes') Trip Notes:
                     input#tripNotes.form-control(type='text', placeholder='Bring an umbrella', name='tripNotes')
-                button.btn.btn-primary(type='submit') Submit Trip
+                button.btn.btn-primary(type='submit' window.location.href = "/allTrips") Submit Trip
+               
+                

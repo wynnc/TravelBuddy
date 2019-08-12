@@ -5,7 +5,7 @@ block content
         img(src='/public/images/apple-touch-icon.png' alt='travel buddy smlogo' class='smlogo')
         .w3-card-4.w3-center.travelform
             
-            form(method='POST' action='/api/trips')
+            form(id='chooseTrip')
                 label(for='currentTrip') Trips
                 select(name='dropDown', id='')
                     if trips
@@ -13,7 +13,7 @@ block content
                             option=trip.tripName
                                 
 
-            form(method='POST' action='/api/trips')
+            form(id='updates')
                 .form-group.chosenTrip
                     label(for='tripDetails') Choose Which Trip Details You Would Like to Add:
                     select#tripSelect.select.form-control.input-lg(form='chooseTripType', name='tripType')
