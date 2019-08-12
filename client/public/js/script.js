@@ -6,7 +6,6 @@ $(document).ready(function () {
 //   var selectedTrip;
   $(document).on('click', '#tripForm', handleTripFormSubmit);
 
-
   $('#tripDetails').on('click', handleUpdateTripForm);
 
   function handleTripFormSubmit () {
@@ -19,9 +18,9 @@ $(document).ready(function () {
         endDate: $('#endDate').val().trim(),
         userId: $('#user.id')
       };
-
-      $.post('/api/trips', newTrip).then(function (response) {
-        console.log(response);
+      
+      $.post('/api/trips', newTrip).then(function (res) {
+        console.log(res);
       });
     });
   }
@@ -29,8 +28,9 @@ $(document).ready(function () {
   // create flight/lodging/transport
 
   function handleUpdateTripForm () {
+
     var selectedTrip = $('.tripName').val();
-    // alert(selectedTrip);
+    // console.log(selectedTrip);
     selectedTrip = parseInt(selectedTrip);
     var airline = $('input[name=airline]').val();
     console.log(airline);
@@ -84,7 +84,9 @@ $(document).ready(function () {
     });
     // console.log(newFlight);
   };
+
 });
+
 
 // update trip
 

@@ -16,7 +16,7 @@ block content
 
                 h2.display-4.m-b-2.aboutFlight Flight Information
 
-                form(method='POST' action='/api/flights')
+                form(method='POST' action='/api/flights' id='flightForm')
                     .form-group.airline
                         label(for='airline') Airline Name:
                         input#airline.form-control(type='text', placeholder='Virgin Airlines', name='airline')
@@ -41,7 +41,7 @@ block content
                 
                 h2.display-4.m-b-2.aboutFlight Lodging Information
 
-                form(method='POST' action='/api/lodgings')
+                form(method='POST' action='/api/lodgings' id='lodgingForm')
                     .form-group.lodgingName
                         label(for='lodgingName') Lodging Name:
                         input#lodgingName.form-control(type='text', placeholder='Marriot', name='lodgingName')
@@ -63,7 +63,7 @@ block content
                         
                 h2.display-4.m-b-2.aboutTrans Transport Information
 
-                form(method='POST' action='/api/transports')
+                form(method='POST' action='/api/transports' id='transportForm')
                     .form-group.dealer
                         label(for='dealer') Dealer Name:
                         input#dealer.form-control(type='text', placeholder='Budget', name='dealer')

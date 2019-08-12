@@ -16,6 +16,14 @@ router.get('/newTrip', function (req, res, next) {
   res.render('tripForm.pug', {title: pageTitle});
 });
 
+router.get('/updateTrip', function (req, res, next) {
+  res.render('updateTrip.pug', {title: pageTitle});
+});
+
+router.get('/comingSoon', function (req, res, next) {
+  res.render('redirect.pug', {title: pageTitle});
+});
+
 router.get('/tripDetails', function (req, res, next) {
   db.Trip.findAll({
     where: {
@@ -62,7 +70,8 @@ router.get('/allTrips', function (req, res, next) {
     ]
   }).then(function (trips) {
     console.log(trips);
-    db.Flight.findAll({}).then(function (flights) {
+    db.Flight.findAll({
+    }).then(function (flights) {
       db.Transport.findAll({}).then(function (transports) {
         db.Lodging.findAll({}).then(function (lodgings) {
           res.render('trips.pug', {title: pageTitle, trips: trips, flights: flights, transports: transports, lodgings: lodgings});

@@ -6,7 +6,7 @@ module.exports = {
     db.Trip
       .find(req.query)
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => res.send(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function (req, res) {
@@ -21,13 +21,13 @@ module.exports = {
     console.log('This is the body: ', req.body);
     db.Trip
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => res.json(dbModel)).then(res.status(200).redirect('/user'))
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
     db.Trip
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => res.json(dbModel)).then(res.status(200).redirect('/user'))
       .catch(err => res.status(422).json(err));
   },
   remove: function (req, res) {
