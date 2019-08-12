@@ -30,10 +30,9 @@ $(document).ready(function () {
   function handleUpdateTripForm () {
 
     var selectedTrip = $('.tripName').val();
-    // console.log(selectedTrip);
+
     selectedTrip = parseInt(selectedTrip);
-    var airline = $('input[name=airline]').val();
-    console.log(airline);
+
     var newFlight = {
       airline: $('input[name=airline]').val(),
       flightConNum: $('input[name=flightConNum]').val(),
@@ -89,5 +88,7 @@ $(document).ready(function () {
 
 
 // update trip
+
+
 
 // // display trips
