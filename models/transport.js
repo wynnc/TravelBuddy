@@ -13,19 +13,19 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     dateStartTran: {
-      type: DataTypes.DATEONLY,
-      validate: {
-        isDate: true
-      }
+      type: DataTypes.STRING
+      // validate: {
+      //   isDate: true
+      // }
     },
     dateEndTran: {
-      type: DataTypes.DATEONLY,
-      validate: {
-        isDate: true
-      }
+      type: DataTypes.STRING
+      // validate: {
+      //   isDate: true
+      // }
     },
     tranTime: {
-      type: DataTypes.TIME
+      type: DataTypes.STRING
     },
     cancelledTran: {
       type: DataTypes.BOOLEAN,

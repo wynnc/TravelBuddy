@@ -15,7 +15,7 @@ router.use('/flights', flightRoutes);
 router.use('/lodgings', lodgingRoutes);
 
 // Transport routes
-router.use('/tranports', transportRoutes);
+router.use('/transports', transportRoutes);
 
 // User routes
 router.use('/users', userRoutes);

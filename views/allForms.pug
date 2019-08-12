@@ -5,8 +5,17 @@ block content
     .main.container
         .formaction
         img(src='/public/images/apple-touch-icon.png' alt='travel buddy smlogo' class='smlogo')
-        .w3-card-4.w3-center.userform
-            h1.display-4.m-b-2.aboutFlight Flight Information
+        .w3-card-4.w3-center.travelform
+        
+            form(method='POST' action='/api/trips' id='updateTrip')
+                label(for='currentTrip') Trips
+                select(name='dropDown', id='')
+                    if trips
+                        for trip in trips
+                            option=trip.tripName
+                            //- id=trip.id
+
+            h2.display-4.m-b-2.aboutFlight Flight Information
 
             form(method='POST' action='/api/flights')
                 .form-group.airline
@@ -31,7 +40,7 @@ block content
                     label(for='flightNotes') Flight Notes:
                     input#flightNotes.form-control(type='text', placeholder='Bring Passport', name='flightNotes') 
             
-            h1.display-4.m-b-2.aboutFlight Lodging Information
+            h2.display-4.m-b-2.aboutFlight Lodging Information
 
             form(method='POST' action='/api/lodgings')
                 .form-group.lodgingName
@@ -53,7 +62,7 @@ block content
                     label(for='lodgingNotes') Lodging Notes:
                     input#lodgingNotes.form-control(type='text', placeholder='Ask for a toothbrush', name='lodgingNotes')
                        
-            h1.display-4.m-b-2.aboutTrans Transport Information
+            h2.display-4.m-b-2.aboutTrans Transport Information
 
             form(method='POST' action='/api/transports')
                 .form-group.dealer

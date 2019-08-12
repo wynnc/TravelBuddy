@@ -13,16 +13,16 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     dateStartLodg: {
-      type: DataTypes.DATEONLY,
-      validate: {
-        isDate: true
-      }
+      type: DataTypes.STRING
+      // validate: {
+      //   isDate: true
+      // }
     },
     dateEndLodg: {
-      type: DataTypes.DATEONLY,
-      validate: {
-        isDate: true
-      }
+      type: DataTypes.STRING
+      // validate: {
+      //   isDate: true
+      // }
     },
     checkIn: {
       type: DataTypes.STRING
