@@ -8,16 +8,16 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     startDate: {
-      type: DataTypes.STRING,
-      validate: {
-        isDate: true
-      }
+      type: DataTypes.STRING
+      // validate: {
+      //   isDate: true
+      // }
     },
     endDate: {
-      type: DataTypes.STRING,
-      validate: {
-        isDate: true
-      }
+      type: DataTypes.STRING
+      // validate: {
+      //   isDate: true
+      // }
     },
     tripNotes: {
       type: DataTypes.STRING
