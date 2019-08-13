@@ -95,7 +95,7 @@ body .w3-container-fluid {
   position: fixed, right 400px, z-index 5;
 }
 
-.w36 .spanclass {
+.w36 ulclass {
   -ms-flex-item-align: auto;
       -ms-grid-row-align: auto;
       align-self: auto;
