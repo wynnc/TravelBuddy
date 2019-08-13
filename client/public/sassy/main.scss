@@ -134,7 +134,9 @@ body {
         padding: 15px; 
         font-size: 20px;
         text-align:center;
-
+    .span{
+        color:$primary-textcolor;
+    }
        
     }
 
@@ -149,6 +151,8 @@ body {
     } 
     
 }
+
+
 
 #primary {
     display: flex;

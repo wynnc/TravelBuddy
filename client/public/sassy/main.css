@@ -82,6 +82,8 @@ body {
     padding: 15px;
     font-size: 20px;
     text-align: center; }
+    .w36 .spanclass .span {
+      color: #392F5A; }
   @media (min-width: 840px) {
     .w36 .w36 {
       display: -ms-grid;
