@@ -1,6 +1,7 @@
 @import "text";
 @import "colors";
 
+
 $primarypadding: 25px;
 $secondartpadding:15px;
 $padding:10px;
@@ -15,6 +16,7 @@ body , html {
 body {
     font-family: $primaryfont-family;
     margin: 0;
+    text-decoration: none;
    
     .formaction {
     display: block;
@@ -25,7 +27,7 @@ body {
     font: inherit;
 
     }
-
+ 
     h1, h2 {
         font-family: $form-font;
     }
@@ -43,8 +45,28 @@ body {
     }
     
     .w3-bar-item{
-        color: $quinary;
+        font-display: $form-font;
+        background-color: $primary-color;
+        color: $primary-textcolor;
+        font-style: inherit;
+        margin:$padding;
+
+        .w3-bar-button {
+            margin:$padding;
+            text-align: center;
+            color: $quinary;
+            &:hover {
+                background-color: $secondary-color;
+            }
+    
+        }
+    
     }
+    .w3-button {
+        font-display: $form-font;
+        margin:$padding
+    }
+    
 
     .display-4 {
         font-family: $form-font;
@@ -67,15 +89,10 @@ body {
         font-weight: normal;
         letter-spacing: 1.5px;
         background-color: $secondary-color; 
+
     
     }
 
-    .w3-button {
-        margin:$padding;
-        text-align: center;
-        font: $quinary;
-
-    }
     .w3-container-fluid {
             clip-path: polygon(0 0, 100% 0, 100% 50%, 57% 100%, 0 100%);
             background-color: $secondary-color;
@@ -87,30 +104,86 @@ body {
 
 }
 
+@media (min-width: 840px) {
+    body .w3-container-fluid {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 57% 100%, 0 100%);
+              clip-path: polygon(0 0, 100% 0, 100% 50%, 57% 100%, 0 100%);
+    }
+}
+  
+
+
 .w36{
 
     display: flex;
     padding: 20px;
     margin: 1em auto;
-    // border-radius: 15px;
-    // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     align-items: center;
     flex-direction: column;
 
     .logo {
+        margin: 100px;
         position: fixed,
         right 400px,
-        z-index 5
+        z-index 5,
+    }
+    .spanclass {
+        align-self: auto;
+        background-color: $primary-color;
+        font-family: $form-font;
+        padding: 15px; 
+        font-size: 20px;
+        text-align:center;
 
        
     }
+
+@media (min-width: 840px) {
+        .w36 {
+          display: -ms-grid;
+          display: grid;
+          -ms-grid-columns: 50% auto;
+              grid-template-columns: 50% auto;
+              grid-template-areas: "primary card";
+        }  
+    } 
     
-    .spanclass {
-        align-self: auto;
-    }
-  
 }
 
+#primary {
+    display: flex;
+    padding: 20px;
+    margin: 1em auto;
+    align-items: center;
+    flex-direction: column;
+    color: $primary-color;
+    padding:$padding;
+    text-align: center;
+
+    h1 {
+    font-size:3em;
+    margin-top:10px;
+    text-transform: uppercase;
+    }
+
+    p{
+        font-size: 1.4em;
+    }
+
+}
+
+@media (min-width: 840px) {
+    #primary {
+      grid-area: card;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
+      margin: 1em;
+    }
+  }
 
 .w3-bar {
     height: 82px;
@@ -129,6 +202,13 @@ body {
     background-color $secondary-color
 }
 
+@media (min-width: 840px) {
+    .w36 #primary {
+      grid-area: primary;
+      text-align: left;
+      margin: 4em 0 0 4em;
+    }
+  }
 
 .w3-container a {
     color: $primary-textcolor,
@@ -146,10 +226,13 @@ pre {
     border 2px $quaternary solid,
     
 }
-
-.w3-bar-item a:hover {
-    background-color: $quaternary;
-}
+@media (min-width: 840px) {
+    .w36 spanclass#primary h1 {
+      width: 30%;
+      font-size: 4em;
+      line-height: .9em;
+    }
+  }
 
 .w34 {
 
