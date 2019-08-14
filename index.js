@@ -73,7 +73,25 @@ if (app.get('env') === 'production') {
   sess.cookie.secure = true; // serve secure cookies, requires https
 }
 
-app.use(session(sess));
+app.set('trust proxy', 1);
+
+app.use(session({
+  cookie: {
+    secure: true,
+    maxAge: 60000
+  },
+  store: new RedisStore(),
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: false
+}));
+
+app.use(function (req, res, next) {
+  if (!req.session) {
+    return next(new Error('Oh no')); // handle error
+  }
+  next(); // otherwise continue
+});
 
 app.use(passport.initialize());
 app.use(passport.session());
