@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const flightsController = require('../../controllers/flightsControllers');
+// var pageTitle = 'TravelBuddy';
+
 
 // Matches with "/api/flights"
 router.route('/')

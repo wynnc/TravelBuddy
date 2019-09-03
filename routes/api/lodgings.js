@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const lodgingsController = require('../../controllers/lodgingsControllers');
 
+
+
 // Matches with "/api/lodgings"
 router.route('/')
   .get(lodgingsController.findAll)

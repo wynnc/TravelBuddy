@@ -8,18 +8,38 @@ $(document).ready(function () {
 
   $('#tripDetails').on('click', handleAddDetailsForm);
 
-  // $('.update-trip').on('click', function () {
-  //   var updateId = $(this).attr('data-id');
-  //   // alert(updateId);
-  //   handleUpdateTripForm(updateId);
-  // });
+  $('#updateTrip').on('click', function () {
+    // this next line retrieves the tripId from the url
+
+    var updateId = window.location.pathname.slice(12);
+    // console.log(window.location.pathname.slice(12));
+
+    var updateTrip = {
+
+      tripName: $('#tripName').val().trim(),
+      startDate: $('#startDate').val().trim(),
+      endDate: $('#endDate').val().trim(),
+      tripNotes: $('#tripNotes').val().trim()
+      // userId: $('#user.id')
+    };
+    $.ajax({
+      method: 'PUT',
+      url: `/api/trips/${updateId}`,
+      data: updateTrip
+    })
+      .then(function () {
+        window.location.href = '/allTrips';
+      });
+
+    // alert(updateId);
+  });
 
   function handleTripFormSubmit () {
     $('#submit').on('click', function (event) {
       event.preventDefault();
 
       var newTrip = {
-        tripName: $('#firstName').val().trim(),
+        tripName: $('#tripName').val().trim(),
         startDate: $('#startDate').val().trim(),
         endDate: $('#endDate').val().trim(),
         userId: $('#user.id')

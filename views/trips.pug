@@ -17,7 +17,7 @@ block content
                                     a(href='/comingSoon' class='btn cancel' data-id=tripId data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Trip
                                 else
                                     a(href='/comingSoon' class='btn cancel' data-id=tripId data-new-cancel=cancelled).w3-bar-item.w3-button Activate Trip
-                                a(href='/comingSoon' class='btn update-trip' data-id=tripId).w3-bar-item.w3-button Update Trip
+                                    a(href=`/updateTrip/${tripId}` class='btn update-trip' data-id=tripId).w3-bar-item.w3-button Update Trip
                                 
                                 if flights
                                     -var found = 0
