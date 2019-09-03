@@ -8,11 +8,11 @@ block content
                 h1.display-4.m-b-2.aboutTrip Current Trips
                 for trip in trips
                     -var tripId=trip.id
-                    .w3-card-6.w3-center.tripPlans
-                            .w3-card-body.w3-border
-                                h5.cardTitle Trip Name: #{trip.tripName}  
-                                h5.cardText Dates: #{trip.startDate} thru #{trip.endDate}
-                                p.cardText Notes: #{trip.tripNotes} 
+                    .w36.w3-center.tripPlans
+                            .w3body.w3-border
+                                h5.cTitle Trip Name: #{trip.tripName}  
+                                h5.cText Dates: #{trip.startDate} thru #{trip.endDate}
+                                p.cText Notes: #{trip.tripNotes} 
                                 if !cancelled
                                     a(href='/comingSoon' class='btn cancel' data-id=tripId data-new-cancel=cancelled).w3-bar-item.w3-button Cancel Trip
                                 else
@@ -61,4 +61,4 @@ block content
                                                     a(href='/comingSoon' class='btn cancel' data-id=lodging.id data-new-cancel=cancelled).w3-bar-item.w3-button Activate Lodging
                                                     a(href='/tripDetails' class='btn update-lodging' data-id=lodging.id).w3-bar-item.w3-button Update Lodging
                                         else if (found == 0 && index == lodgings.length -1)
-                                            p.cardText You have no scheduled Lodging plans for this Trip
+                                            p.cText You have no scheduled Lodging plans for this Trip

@@ -17,8 +17,10 @@ router.get('/login', passport.authenticate('auth0', {
 // Perform the final stage of authentication and redirect to previously requested URL or '/user'
 router.get('/callback', function (req, res, next) {
   passport.authenticate('auth0', function (err, user, info) {
+    // console.log('checking error');
     if (err) { return next(err); }
-    console.log(user);
+    // console.log('checking user');
+    // console.log(user);
     if (!user) { return res.redirect('/login'); }
     req.logIn(user, function (err) {
       if (err) { return next(err); }
