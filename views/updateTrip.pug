@@ -6,7 +6,7 @@ block content
         .w3.w3-center.tripform
             h1.display-4.m-b-2.aboutTrip Update Trip 
 
-            form(method='POST' id='tripForm' action='/api/trips')
+            form(id='updateTrip')
                 .form-group.tripName
                     label(for='tripName') Name:
                     input#tripName.form-control(type='text', placeholder='Trip Name', name='tripName')

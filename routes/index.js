@@ -3,25 +3,17 @@ var router = express.Router();
 var pageTitle = 'TravelBuddy';
 var db = require('../models');
 
-// /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'TravelBuddy' });
+
+router.get('/api/lodgingForm', function (req, res, next) {
+  res.render('lodgingInfo.pug', {title: pageTitle});
 });
 
-router.get('/updateUser', function (req, res, next) {
-  res.render('userForm.pug', {title: pageTitle});
+router.get('/flightForm', function (req, res, next) {
+  res.render('flightInfo.pug', {title: pageTitle});
 });
 
-router.get('/newTrip', function (req, res, next) {
-  res.render('tripForm.pug', {title: pageTitle});
-});
-
-router.get('/updateTrip', function (req, res, next) {
-  res.render('updateTrip.pug', {title: pageTitle});
-});
-
-router.get('/comingSoon', function (req, res, next) {
-  res.render('redirect.pug', {title: pageTitle});
+router.get('/transportForm', function (req, res, next) {
+  res.render('transportInfo.pug', {title: pageTitle});
 });
 
 router.get('/tripDetails', function (req, res, next) {
@@ -34,22 +26,6 @@ router.get('/tripDetails', function (req, res, next) {
   }).catch(function (err) {
     res.json(err);
   });
-});
-
-router.get('/allForms', function (req, res, next) {
-  res.render('allForms.pug', {title: pageTitle});
-});
-
-router.get('/flightForm', function (req, res, next) {
-  res.render('flightInfo.pug', {title: pageTitle});
-});
-
-router.get('/transportForm', function (req, res, next) {
-  res.render('transportInfo.pug', {title: pageTitle});
-});
-
-router.get('/lodgingForm', function (req, res, next) {
-  res.render('lodgingInfo.pug', {title: pageTitle});
 });
 
 router.get('/allTrips', function (req, res, next) {
@@ -81,6 +57,23 @@ router.get('/allTrips', function (req, res, next) {
       res.json(err);
     });
   });
+});
+
+/* GET home page. */
+router.get('/', function (req, res, next) {
+  res.render('index', { title: 'TravelBuddy' });
+});
+
+router.get('/updateUser', function (req, res, next) {
+  res.render('userForm.pug', {title: pageTitle});
+});
+
+router.get('/comingSoon', function (req, res, next) {
+  res.render('redirect.pug', {title: pageTitle});
+});
+
+router.get('/allForms', function (req, res, next) {
+  res.render('allForms.pug', {title: pageTitle});
 });
 
 // module.exports = router;
