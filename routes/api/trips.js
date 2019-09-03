@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const tripsController = require('../../controllers/tripsControllers');
-var pageTitle = 'TravelBuddy';
-var db = require('../models');
+// var pageTitle = 'TravelBuddy';
+// var db = require('../models');
 // const trip = require('../../models/trip');
 
 // Matches with "/api/trips"

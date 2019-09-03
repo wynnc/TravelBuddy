@@ -3,7 +3,6 @@ var router = express.Router();
 var pageTitle = 'TravelBuddy';
 var db = require('../models');
 
-
 router.get('/api/lodgingForm', function (req, res, next) {
   res.render('lodgingInfo.pug', {title: pageTitle});
 });
